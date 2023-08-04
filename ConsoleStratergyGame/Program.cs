@@ -1,9 +1,14 @@
-﻿namespace ConsoleStratergyGame {
+﻿using ConsoleStratergyGame.Map;
+
+namespace ConsoleStratergyGame {
     class Program
-    { 
+    {
         public static void Main()
         {
-            Console.WriteLine("hello");
+            MapHandler.genNewMap(10,10);
+            MapHandler.populateMap();
+            MapHandler.showMap();
+            Console.ReadLine();
         }
     }
 }
