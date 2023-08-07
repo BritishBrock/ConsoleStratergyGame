@@ -23,8 +23,9 @@ namespace ConsoleStratergyGame.Tiles
         public abstract TileType Type { get; set; }
 
         public Position Pos { get; set; }
-
-
+        
+        public WalkingCost Walking_Cost { get; set; }
+        public Boolean isWalkable { get; set; }
         public Tile(Position pos)
         {
             Pos = pos;
@@ -39,11 +40,18 @@ namespace ConsoleStratergyGame.Tiles
 
     }
 
+    public enum WalkingCost {
+        Normal,
+        Hard,
+        Easy,
+    }
+
+
     public struct Position
     {
-        int X { get; set; }
-        int Y { get; set; }
-        public Position(int x,int y)
+        public int X { get; set; }
+        public int Y { get; set; }
+        public Position(int y,int x)
         {
             X = x;
             Y = y;

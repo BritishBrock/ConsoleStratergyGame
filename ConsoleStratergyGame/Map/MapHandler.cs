@@ -20,7 +20,7 @@ namespace ConsoleStratergyGame.Map
                     i = 0;
                   
                 }
-                Map[j, i] = new Land();
+                Map[j, i] = new Land(new Position(j,i));
             }
         }
         public static void showMap()
