@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static ConsoleStratergyGame.Tiles.Units.Unit;
 
 namespace ConsoleStratergyGame.Tiles
 {
-    abstract class Tile
+    public abstract class Tile
     {
 
         public enum TileType
@@ -21,6 +22,15 @@ namespace ConsoleStratergyGame.Tiles
 
         public abstract TileType Type { get; set; }
 
+        public Position Pos { get; set; }
+
+
+        public Tile(Position pos)
+        {
+            Pos = pos;
+        }
+
+
         public object returnAsType(object obj) {
 
             return obj as Unit;
@@ -29,5 +39,14 @@ namespace ConsoleStratergyGame.Tiles
 
     }
 
-    
+    public struct Position
+    {
+        int X { get; set; }
+        int Y { get; set; }
+        public Position(int x,int y)
+        {
+            X = x;
+            Y = y;
+        }
+    }
 }
