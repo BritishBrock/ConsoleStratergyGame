@@ -22,6 +22,8 @@ namespace ConsoleStratergyGame.Tiles
 
         public abstract TileType Type { get; set; }
 
+        public abstract ConsoleColor Tile_Color { get; set; }
+
         public Position Pos { get; set; }
         
         public WalkingCost Walking_Cost { get; set; }

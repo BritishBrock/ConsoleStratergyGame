@@ -9,6 +9,7 @@ namespace ConsoleStratergyGame {
     {
         public static void Main()
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             MapHandler.genNewMap(10,10);
             MapHandler.populateMap();
             MapHandler.Map[0, 0] = new Assasin(UnitType.Friendly,new Position(0,0));

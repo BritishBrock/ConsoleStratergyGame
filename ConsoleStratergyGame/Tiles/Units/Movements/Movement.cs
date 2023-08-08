@@ -32,7 +32,7 @@ namespace ConsoleStratergyGame.Tiles.Units.Movements
 
 
         public void showMovesMap(in Tile self) {
-            int[,] MovesMap = new int[MapHandler.Map.GetLength(0), MapHandler.Map.GetLength(1)];
+            Tile[,] MovesMap = new Tile[MapHandler.Map.GetLength(0), MapHandler.Map.GetLength(1)];
 
 
             for (int i = 0, j = 0; (j * i) < ((MapHandler.Map.GetLength(0)) * (MapHandler.Map.GetLength(1) - 1)); i++)
@@ -47,26 +47,34 @@ namespace ConsoleStratergyGame.Tiles.Units.Movements
 
                     if ((j == (self.Pos.Y + Moves[k, 0])) && (i == (self.Pos.X + Moves[k, 1])))
                     {
-                        MovesMap[j, i] =1;
+                        Console.WriteLine(j + "   " + i);
+                        MovesMap[j, i] =new UnitMoveTile(new Position(j,i),true);
+                        k = Moves.GetLength(0);
+                    }
+                    else
+                    {
+                        MovesMap[j, i] = new UnitMoveTile(new Position(j, i), false);
                     }
                 }
             }
+            //MovesMap[self.Pos.Y, self.Pos.X] = 3;
 
-            MovesMap[self.Pos.Y, self.Pos.X] = 3;
 
-
-            StringBuilder mapString = new StringBuilder();
             for (int i = 0, j = 0; (j * i) < ((MovesMap.GetLength(0)) * (MovesMap.GetLength(1) - 1)); i++)
             {
                 if (i > MovesMap.GetLength(1) - 1)
                 {
                     j++;
                     i = 0;
-                    mapString.Append("\n");
+                    Console.WriteLine();
                 }
-                mapString.Append(MovesMap[j, i]);
+                Console.ForegroundColor = MovesMap[j, i].Tile_Color;
+                Console.Write(MovesMap[j, i].Icon+" ");
             }
-            Console.WriteLine(mapString.ToString());
+            Console.ForegroundColor = ConsoleColor.White;
+
+
+            //TODO: After showing you the map you can choose the square by moving your cursor tile to the location you want to move to.
 
 
         }

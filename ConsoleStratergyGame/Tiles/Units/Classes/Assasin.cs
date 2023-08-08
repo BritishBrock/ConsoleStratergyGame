@@ -12,7 +12,7 @@ namespace ConsoleStratergyGame.Tiles.Units.Classes
         public override Movement Movements { get ; set; }
         public override UnitType Unit_Type { get ; set; }
         public override ClassType Class_Type { get; set; } = ClassType.Assasin;
-        
+        public override ConsoleColor Tile_Color { get; set; } = ConsoleColor.White;
         public Assasin(UnitType unit_type,Position pos) : base(pos){ 
             Unit_Type = unit_type;
             Movements = new Movement(Class_Type);

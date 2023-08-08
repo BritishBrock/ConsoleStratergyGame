@@ -11,6 +11,7 @@ namespace ConsoleStratergyGame.Tiles.Lands
     {
         public override string Icon { get; set; } = "+";
         public override TileType Type { get; set; } = TileType.Land;
+        public override ConsoleColor Tile_Color { get; set; } = ConsoleColor.White;
 
         public Land(Position pos) :base(pos){ }
     }
