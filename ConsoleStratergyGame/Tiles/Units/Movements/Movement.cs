@@ -59,11 +59,8 @@ namespace ConsoleStratergyGame.Tiles.Units.Movements
             }
             MovesMap[self.Pos.Y, self.Pos.X] = new UnitMoveTile(new Position(self.Pos.Y, self.Pos.X), ConsoleColor.Blue); ;
 
-
             showMovesMap(MovesMap);
-
-              //TODO: After showing you the map you can choose the square by moving your cursor tile to the location you want to move to.
-              ConsoleKeyInfo input;
+            ConsoleKeyInfo input;
             Tile myPiece = MovesMap[self.Pos.Y, self.Pos.X];
             do
             {
@@ -81,11 +78,9 @@ namespace ConsoleStratergyGame.Tiles.Units.Movements
                         break;
                     case "s":
                         checkAndMovePiece(1,0,  MovesMap,myPiece, self);
-                        
                         break;
                 }
             } while (input.Key.ToString().ToLower() != "enter");
-
             moveUnit(new Position(myPiece.Pos.Y,myPiece.Pos.X), self);
         }
 
@@ -103,6 +98,7 @@ namespace ConsoleStratergyGame.Tiles.Units.Movements
 
         public void showMovesMap(Tile[,]MovesMap) {
             Console.Clear();
+            ConsoleColor color = ConsoleColor.White;
             for (int i = 0, j = 0; (j * i) < ((MovesMap.GetLength(0)) * (MovesMap.GetLength(1) - 1)); i++)
             {
                 if (i > MovesMap.GetLength(1) - 1)
@@ -111,7 +107,11 @@ namespace ConsoleStratergyGame.Tiles.Units.Movements
                     i = 0;
                     Console.WriteLine();
                 }
-                Console.ForegroundColor = MovesMap[j, i].Tile_Color;
+                if (color == null || color != MovesMap[j, i].Tile_Color) { 
+                    color = MovesMap[j, i].Tile_Color;
+                    Console.ForegroundColor = color;
+                }
+                
                 Console.Write(MovesMap[j, i].Icon + " ");
             }
             Console.ForegroundColor = ConsoleColor.White;
