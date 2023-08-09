@@ -12,9 +12,8 @@ namespace ConsoleStratergyGame.Tiles.Units.Movements
         public override TileType Type { get; set; } = TileType.Land;
         public override ConsoleColor Tile_Color { get ; set; }
 
-        public UnitMoveTile(Position pos,Boolean inUnitMoveList):base(pos) { 
-            if(inUnitMoveList) Tile_Color = ConsoleColor.Yellow;
-            else Tile_Color = ConsoleColor.Red;
+        public UnitMoveTile(Position pos,ConsoleColor inUnitMoveList):base(pos) {
+            Tile_Color = inUnitMoveList;
         }
     }
 }
