@@ -58,12 +58,35 @@ namespace ConsoleStratergyGame.Map
         //        {
         //            j++;
         //            i = 0;
-                   
+
         //        }
         //        mapSerialized.Add(Map[j,i]);
         //    }
         //    return mapSerialized;
 
         //}
+        public static void loopThroughFriendlyUnit()
+        {
+            
+            ConsoleKeyInfo input;
+            do
+            {
+                input = Console.ReadKey(true);
+                switch (input.Key.ToString().ToLower())
+                {
+                    case "a":
+                      
+                        break;
+                    case "d":
+                        
+                        break;
+                }
+            } while (input.Key.ToString().ToLower() != "enter");
+        }
+        
     }
+
+    
+
+
 }
